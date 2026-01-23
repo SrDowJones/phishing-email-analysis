@@ -1,0 +1,355 @@
+Received: from SJ2PR02MB9795.namprd02.prod.outlook.com (::1) by
+ CH3PR02MB9610.namprd02.prod.outlook.com with HTTPS; Fri, 16 Jan 2026 21:33:48
+ +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=L8bJBn52w4AyHJymuQPkChcJMdJ9w1vHzGvV30OT+uFj4hHfPcYH1wKjFK3O2NOJKfsko/ZsB7KIRITFtTuTHZV6d9oRX+5jgEwfQot7o8UmitwFERWKIxnMxDv+QncR+RZPWbMflxj/DKvoLa7aPUyQkgemN6laTkmE2lY9LHAyIlMHm6EFDIgVuYllzYs3eH03EjTBWdeEytsNkt2za0YG8MMGZb7WxQe+DNecWbo83c5Vl5+V3YgnnxWm9q+njZAccMa6sWR5FodpemlXOgP38Z0Mz+H7/YgK7rzc9FXOYqqiHblwHWRij+Ke3f792l9JI/eDRUhYeBUU9mbszw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=g1wQPkn4un2ICYk/UPcgRTAByuYHpwF/63lkpyCJ1mc=;
+ b=s2+KzCJsCHR8vvWCt9I0iFDyi0lXIXAiBzYjOpLxHjKBFckODfd0lX71uKYnrcmWYSsl7/edADek1rD4muyQuIc4Um1CMYJuhmT1Gk1TNAI7alKQonpcG5KeUsp+RaQxTMpgi2czf6QO+77i6McJ3jpCMkdxx5j3bIMOi57ywfzeP4HHSGlyv5aMN8cP8qfu8BzL6ocvwUo2uRp+5uOgmIbh8J3wEmg00C7y9S+x7g/IsosyXTo5gn67p9A0rbk+O8cVsmdn4E4+oSryd30eTSFfOHDigk9qMZaRcIg1Qp2QVroS8beyhnPURGRpiqjSzyvfF4cr9iLSu7+WdGyMjg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 52.102.194.42) smtp.rcpttodomain=outlook.com
+ smtp.mailfrom=kri19253008.onmicrosoft.com; dmarc=none action=none
+ header.from=rewardsbqk.com; dkim=none (message not signed); arc=pass (0 oda=0
+ ltdi=1)
+Received: from CH2PR04CA0028.namprd04.prod.outlook.com (2603:10b6:610:52::38)
+ by SJ2PR02MB9795.namprd02.prod.outlook.com (2603:10b6:a03:549::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.6; Fri, 16 Jan
+ 2026 21:33:46 +0000
+Received: from CH1PEPF0000AD75.namprd04.prod.outlook.com
+ (2603:10b6:610:52:cafe::12) by CH2PR04CA0028.outlook.office365.com
+ (2603:10b6:610:52::38) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.9 via Frontend Transport; Fri,
+ 16 Jan 2026 21:33:46 +0000
+Authentication-Results: spf=pass (sender IP is 52.102.194.42)
+ smtp.mailfrom=kri19253008.onmicrosoft.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=Rewardsbqk.com;compauth=fail
+ reason=001
+Received-SPF: Pass (protection.outlook.com: domain of
+ kri19253008.onmicrosoft.com designates 52.102.194.42 as permitted sender)
+ receiver=protection.outlook.com; client-ip=52.102.194.42;
+ helo=OS8PR02CU002.outbound.protection.outlook.com; pr=C
+Received: from OS8PR02CU002.outbound.protection.outlook.com (52.102.194.42) by
+ CH1PEPF0000AD75.mail.protection.outlook.com (10.167.244.54) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.4
+ via Frontend Transport; Fri, 16 Jan 2026 21:33:45 +0000
+X-IncomingTopHeaderMarker: OriginalChecksum:54396293CE403AA61345F49FACD16F7723940392BF0CAB7613E98726A082AB7C;UpperCasedChecksum:E0D2466DDB0DE5BB34986C82C1BC141CF4B3C5C0C625DFC00AE30083A3AB676C;SizeAsReceived:7565;Count:37
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HaFBR/5YrnQmTVRKrWhMTFG+RB+qRGWcfhx7J1kQ1k3qn2Z2klJq14gOpX+3N+wGRVwF+9bkCpGzuE/Pw0m7wIkZABAZ+nuchJHmnbpbG8a9z3jSBouEMpQOiisFs2HeHoqNUAlNvzbNiobhecDVr7Zu3vvWqwgPkLOpb5PCmbABx2LbBhOPtlWPD7lU7lVFR46pWtix2kUIhD7e7PkxGoSoZ8U8eg1YHlMOEzHTW43i2LRuosZI91ivXPuI0vA1F0/ybukG6mfgATcNkCBjR5Ie0TUtqj5yMc0HjkggGQ1OT8Y4D6CX1dkHnzGqjbS9j2KwgSnT2yicI1pPBPAQVQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=g1wQPkn4un2ICYk/UPcgRTAByuYHpwF/63lkpyCJ1mc=;
+ b=Ll/KoZR/83kJ3X34iGKB73z+CPAUq0uMa8K0Eh4bIIXQJ6qBM7NHuvmRB3YNevJCAma1uaV/twyjLB7Rvm+Vxc4MIMtwSoKRjVUWUIndDPv1BvKt+xJ42LUh/7mMdYYQssR/2ophantGabkq/uLr9Qf6M9ZKHoBfERKpZ6mmLC/mJN35s23UkPNkqun8/W1cpRCft/7Su7FXKq4mVCnkFGwvBBjcLA+SsHulPM95hB/BmDwWSo6AfgXbvYGckIRClYM/UfvloSEWj2sKKtqf4lxR5U1pXSCpMk+dopbsy4JHb9QkaGN4qucMRGLn2ibQTh3XURN5slRhjz/g6gbtKA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 37.58.63.18) smtp.rcpttodomain=outlook.com
+ smtp.mailfrom=kri19253008.onmicrosoft.com; dmarc=none action=none
+ header.from=rewardsbqk.com; dkim=none (message not signed); arc=none (0)
+Received: from PS2PR01CA0033.apcprd01.prod.exchangelabs.com
+ (2603:1096:300:58::21) by JH0PR06MB6918.apcprd06.prod.outlook.com
+ (2603:1096:990:65::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.8; Fri, 16 Jan
+ 2026 21:33:43 +0000
+Received: from TY2PEPF0000AB89.apcprd03.prod.outlook.com
+ (2603:1096:300:58:cafe::e2) by PS2PR01CA0033.outlook.office365.com
+ (2603:1096:300:58::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.8 via Frontend Transport; Fri,
+ 16 Jan 2026 21:33:45 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 37.58.63.18)
+ smtp.mailfrom=kri19253008.onmicrosoft.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=Rewardsbqk.com;
+Received-SPF: Fail (protection.outlook.com: domain of
+ kri19253008.onmicrosoft.com does not designate 37.58.63.18 as permitted
+ sender) receiver=protection.outlook.com; client-ip=37.58.63.18;
+ helo=kri19253008.onmicrosoft.com;
+Received: from kri19253008.onmicrosoft.com (37.58.63.18) by
+ TY2PEPF0000AB89.mail.protection.outlook.com (10.167.253.7) with Microsoft
+ SMTP Server id 15.20.9542.4 via Frontend Transport; Fri, 16 Jan 2026 21:33:42
+ +0000
+To: <belyeu_thor@outlook.com>
+Date: Fri, 16 Jan 2026 21:33:41 +0000
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Subject: Reminder: you have an unclaimed reward
+From: "=?UTF-8?B?VW5pdGVkIEhlYWx0aGNhcmU=?=" <UHC@Rewardsbqk.com>
+Content-Length: 185870
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Message-ID: <b2c4b3e2-13af-42fb-970d-91e77ccd289a@TY2PEPF0000AB89.apcprd03.prod.outlook.com>
+Return-Path: n17lk@kri19253008.onmicrosoft.com
+X-EOPAttributedMessage: 1
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB89:EE_|JH0PR06MB6918:EE_|CH1PEPF0000AD75:EE_|SJ2PR02MB9795:EE_|CH3PR02MB9610:EE_
+X-MS-Office365-Filtering-Correlation-Id: 90099f7b-9dbc-460b-cb57-08de5546ee14
+X-MS-Exchange-SenderADCheck: 2
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|4022899009|36860700013|32650700017|376014|61400799027|34096008|48200799018|69100299015|82310400026|54012099003|52005299006|85622059|8096899003|4076899003|32550700048|15450700066;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?a2dKSElXU2EwRjNSQU1lVFFxL0Q5VE02SHlGd0Y2SGMwbERnUC9kOGJHSEdM?=
+ =?utf-8?B?TWdSY1ByZmlmbFlUUzcvR2lSRW5yYURNWklQUXZVNFlhcm9aK2NudkFaUDg0?=
+ =?utf-8?B?aGJiWEhhWHNINXNsSHgrOFBybmhEeURtd2Q1WHpadDF3d3ZaZGRNeHByQkUx?=
+ =?utf-8?B?YUw1R0pEQTJBS0xFQXRqdUd4WlIzbE0rR0NXaCszRnJYd3RtT1BtMy9uZ3BJ?=
+ =?utf-8?B?cVlKUVJ3c1dhZy9hbGNlVHlEYW9TcUJaSDBVRWhLeTdpbDMrK1VRdUk5SmJk?=
+ =?utf-8?B?YXlDTW1BaVlLWTV5Q3Q5SmFvSXZTU0kyQ01hQlc4cHNrRiswUm4wQUhLWFlI?=
+ =?utf-8?B?d2huT1dVOUN0bE9sVUpxZ1orZWhBalVGRXpHTkVFWXQxNTZRYkNwUkxPR3ZG?=
+ =?utf-8?B?WWlGYzIrVWgzMVVNODEwOEtyd3JpRTNSOTdoMkJZT25GbUN3d0FZT1lCak55?=
+ =?utf-8?B?MmVuaEVNeTZoUDFPUk56ZmtoL2VzVld1T0l4L2JiWFM1SVdwQ21IQXMraE1v?=
+ =?utf-8?B?SkM0ZWxEYlhnTFhRZ1l3ZkdYSmZwMTVXak81Z1RUSkNTS1Z0dVoxWUNpeTBq?=
+ =?utf-8?B?L0lTOUc1cDBXMlRnVkgwYU9JUTVTN2I3a3VkUy90ZHhORGF0QmpnbkI4UHFX?=
+ =?utf-8?B?NGkzaUw0aWtGNDQ3WHY4bFpTWnhENERmL3NQL25GMHE1NXM2WURjT29qR1hV?=
+ =?utf-8?B?bDBDdS9MSCtmdHBRL2VhU016WmFvZytpWFFVZUNJUnMweTd2VUduWSttMkht?=
+ =?utf-8?B?SGRYYTM4ZW5SZkM4eDZvSWhjdnhxNmh2cGg2ZzNzVTF6MGFSaE9lRjBkSVVZ?=
+ =?utf-8?B?ckNEV1I4Q3ZDM3pMSmZlVWJuZXRvVGM5M0dSWVZkRlhrYjdGT3lzMWNCcTNO?=
+ =?utf-8?B?dDU5QnoyRXBsYlhnYkxra1lLa2dPRDd4WUgySjE1NmZ2SlUySnhiTVpBcDZ0?=
+ =?utf-8?B?Q1NNTkdoN1ZmYWd0djB5cGZyZEMzODF0ZjRJQUtYT3RNVjQxZ3FxU290UDNO?=
+ =?utf-8?B?czNaL2FGQXFRWTZKK2xxMWZCUi80clhtMUFDUHQ5aFhtOHhxdnk3MGRWT20w?=
+ =?utf-8?B?eTE4c2ZQcHdFV3Y5QTdrSTkvcmc1dDYrRDF0dzNTU0Z1aUUzMklIa3N4MFkx?=
+ =?utf-8?B?VkppdU4yaFZpRDVNYWVLNklITWhLWEVnWHVRa1NzNXVKUUtsK1R5SmZMYW5o?=
+ =?utf-8?B?RGRUeWdmeVhyVHhFcnRrVTVHbHdIWXFUTTNqTTNZVDQvM0xjb2lCZDVOdzMy?=
+ =?utf-8?B?UENVazVFSFE4ZlRMWUFBY29CSUFZdlZVSmM1UW9CTWNvVkFSRTE4VkhscS9n?=
+ =?utf-8?B?MlVpRktwa0pLV1EyckxPaGlkakFzdVFkZzJEcE52STFFSzYrMDhaVHJ1cGpZ?=
+ =?utf-8?B?b2syOFRRNjhQZk9RY0loWm52UzhqWVpZMHBqNWdFazB5QUxncnc4ajFDVjN4?=
+ =?utf-8?B?bWhlaU5SS2w0NHZwZFlFVXZqT251OGRxV1FZSU5yWUNFZ3cwUEJ4WnRtUGpD?=
+ =?utf-8?B?WWFuR2c2UGg0VjBFRTlVK0puZ29nUlZ0VXdIZGZpaTRxTFRnRWVMbHFwWEpV?=
+ =?utf-8?B?K2NDSDc2cmx5M0RqeXRVZ2JwdDFDdVZHaUhQWVRVbTU4Z3ZyWUhwaU1XaVpu?=
+ =?utf-8?B?aGlKRHNINWdqOUZoanB0dVhwVVBVVTFEWDFoemkrNTIxTmdtZldwa0pIQmZZ?=
+ =?utf-8?B?RW83WWJnVFpGL1dPRVJ6a2Vjcy94a2R5RnE5emhkUTQvRmxCNU1TRHVFSHJi?=
+ =?utf-8?B?TUhVZHJBYWxZdjJFd25Fenp0VnZyMVJNMW80NHNMUDJHb0swRE5rSWNtYkFt?=
+ =?utf-8?B?WExiNERPZEo4cWVxM1d3RVVVRTU1VjNCdGcvU09EVWFtOVVMR0VybHYvb29n?=
+ =?utf-8?B?OGJMZUI0aWFYelBVb1JZQ29vSnc1S1BISjdQQTFLNWFXdXY2WVRIWVg1RDZE?=
+ =?utf-8?B?dVd5L2hkK2YyeHkzQk5hL0ZtY1FuVGpYMW9zUFVNRXJDd1d3MlhVbmkvOE5n?=
+ =?utf-8?B?T3NIZHo3OVhFWEJ3eVY2eHFLUlp5bnVWZUNpZVUzSlBLQTdldWxISkZRVW14?=
+ =?utf-8?B?a0lqYzZtRG9GRXpORGhZeXkvSmFHcVFQSm1vMlVoWFdZQ0R0TVdBNWtVc1ZN?=
+ =?utf-8?B?cDVNNGJpblpOZnZrdndGM2s4ZVVBaFYrUW9heFl4WEZsUlVxbG9mOG1mTSsy?=
+ =?utf-8?B?MDlTQ1QyVzQxOWsxQkl1VVpzMTRTRzJ3dzJ3WE1nRDI2WjZrRkRFeFo4ZEZk?=
+ =?utf-8?B?TWFJblFsMzcyVWtVZmFIYm1sOFh3PT0=?=
+X-Forefront-Antispam-Report-Untrusted: CIP:37.58.63.18;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:kri19253008.onmicrosoft.com;PTR:ac-paris.fr;CAT:NONE;SFS:(13230040)(4022899009)(36860700013)(32650700017)(376014)(61400799027)(34096008)(48200799018)(69100299015)(82310400026)(54012099003)(52005299006)(85622059)(8096899003)(4076899003)(32550700048)(15450700066);DIR:OUT;SFP:1501;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR06MB6918
+X-IncomingHeaderCount: 37
+X-MS-Exchange-Organization-ExpirationStartTime: 16 Jan 2026 21:33:46.3600
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 90099f7b-9dbc-460b-cb57-08de5546ee14
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: CH1PEPF0000AD75.namprd04.prod.outlook.com
+X-MS-Exchange-Transport-CrossTenantHeadersPromoted: CH1PEPF0000AD75.namprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource: CH1PEPF0000AD75.namprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 1/16/2026 9:21:23 PM
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 9a20010e-d1cf-48b4-a8f8-08de5546ec42
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 52.102.194.42
+X-SID-PRA: UHC@REWARDSBQK.COM
+X-SID-Result: NONE
+X-MS-Exchange-Organization-SCL: 5
+X-Microsoft-Antispam: BCL:0;ARA:1444111002|51300799021|15110799015|28130799003|67000799015|87000799018|470799035|13020799006|9800799015|9000799056|36140799009|35120799006|47200799024|58200799021|10300799038|46080799006|970799060|70000799015|62400799018|15010799006|2700799029|461199028|1380799030|1360799030|1370799030|1602099012|460799366;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2026 21:33:45.9380
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 90099f7b-9dbc-460b-cb57-08de5546ee14
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=7ba30821-4689-4679-bebb-e18f5838ea6b;Ip=[37.58.63.18];Helo=[kri19253008.onmicrosoft.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD75.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR02MB9795
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.6796297
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.9520.004
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;psp:0;auth:0;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000311)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(2008001181)(2008121020)(4810010)(4910033)(10005027)(9610028)(9540006)(10160021)(9320005)(9245025)(120001);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?TjMrS09wTHdoWWVqR2lhaTBkaWdhSlFFdi85WC9sMWRvWTFReXJnVVJNWTk4?=
+ =?utf-8?B?MTQzSTNJS1RxNytQWktFSGNaNGZ4UzE4dURodVc4U1J0U01zSDE4QXNkcGZK?=
+ =?utf-8?B?WVQzbW1XUmlvb2VDQlZXa3BxcVlEUHV5SVdPWGJmeU1YZzkvem9TVmNMV296?=
+ =?utf-8?B?Mlc5YXhSWGFBK1lLL2NlS1lJd2pBczgvTHdoWVBxTHRZd1cwbXlqK1NZeExN?=
+ =?utf-8?B?MHArZWpzdlppQVM0TDlXQVJGVVdaYUM1YzUrRkJGQmRQSXdCbU1aeStPTklu?=
+ =?utf-8?B?ejZBWlVwSnVrclc1Y2dydGhCVDRYM01QZ3JCUEd4VFF4K0pKU3dCWVZqaXFK?=
+ =?utf-8?B?RHdPMFhqWURvUGZpSHpsaEtFVUZORFozSkQyMzFsdEFDbjFZNmUvTDNnM25j?=
+ =?utf-8?B?S1FYZkgwWXE0elBtYVRRcWk1czNDeTVFVVdHZWptVHpVTTdGN0x0Ly83Y2h6?=
+ =?utf-8?B?YmE5Y0tVVTJFNG9sY3pHMm1tYkU5WmNGMU9tYTZsN1pTdnZhcTZrc29tdGE3?=
+ =?utf-8?B?UWIveEV3YlhpQ1NSL0g5dVJrVDQ2QnpSMjcybTF6YW04TlVZdEFOMHI0WFVi?=
+ =?utf-8?B?TGRNK1kyY0ZSMkk1NG9qQktDNFF2WWhNdjV0dGVVNUVZTm8vT3puR08vTjEw?=
+ =?utf-8?B?S09LYWI4SjcwUDg0RUJyc1ltc1d0WkZCUE1HOTBXbm55Q0cyL0JJUlRDYkh3?=
+ =?utf-8?B?TkpMQURkZ2p4YWpaWEYvbStGQUxQR2x4OFRSamJTYkJqSWJHQ1VxSW1XdE5C?=
+ =?utf-8?B?SWZQeDJqVEJCQkpJM2xLejVDVzRPT2ZiVDNTeHdaNGNQYUNGUjQ3SnEvRVgv?=
+ =?utf-8?B?OGRWMzNaVkhWNktsM05LNXNqVHRXTEE4cDFMRkcvUHJnaWhtbituZjVZYTRl?=
+ =?utf-8?B?SVhSb0hkSlJvSk1aejByakYwK2FMbXNsd1JLNkFvbHpRUE8xcitYU2xDbFhJ?=
+ =?utf-8?B?YmYxcTJIR3N5VUwyemNLOUlYejAwNFJnMGJwQzdCTGxMR0lBSE5jQllFWEZN?=
+ =?utf-8?B?YUlsK3dNRXEvbTBiZklVU0EweE42K0lrU0d1MTllMWxvL05RMWhDbUl6TnN5?=
+ =?utf-8?B?emNGc0xrQmRHVWpuYkV4WHFuRDJNZy9xaEtPUGJWVU9pNE54bStVbFRDaVdI?=
+ =?utf-8?B?S2hNenFkUjE1VlB3aHg3Qi94c0ZwQWNYQnZnZHpGMit6Y1haRER4ank5aDRS?=
+ =?utf-8?B?eW85UE9hWDg1STN6SWZ6VXNLQ3FNOHdwNE1NbFFlaCtPdVgrUy9SYW1jWUR5?=
+ =?utf-8?B?UVBtU2JLOXpkc2RqdEpJQTNXMXdiUzNtK2p6QnkwVXE5eGtoa2FDYm5LeTN1?=
+ =?utf-8?B?QnEzZnltQ1NMRDJxeGQ3K1BGTzZ5T1FwYXZTeXdlb3BmazFzNU9JbTAzeHhk?=
+ =?utf-8?B?cmVRRngvemVSdUF5ZEJ2RWREcjBaREI3Um5ZMVJpMUFFbHBoVFZaMkU2QkVK?=
+ =?utf-8?B?cU9PWGpRc3BwSzVGK0xha3NRa2VwRWdYZVpWZG5tQ2ZFZ2l2NUtuWndGSFA4?=
+ =?utf-8?B?bjZtMHJ1S0tINnduSmpWclNCWUw2SVhGb25PZ3VGZ0FOaVBuSitjd3orM1ho?=
+ =?utf-8?B?anFmdERzZktFVXdvcTZ2c1pEOXdIZ0tnT0VzUGlhdU42bDdGZlFicFpjMktM?=
+ =?utf-8?B?Mis0bk9HZ3NCdVVRWDdnNHQ3b2R1enBqOFFUS0lGaVgrcXRpeXdmbUxHOU83?=
+ =?utf-8?B?ZDhvc0FhNHZRenpLL2FsNG9uZzZxTFlzWjNVYlRPWUlHTS9NczRiUkhJdUxq?=
+ =?utf-8?B?S3FHS090V0YvVm1tNTR1R01vbzE2emZBcG1tSnJVLzdNcVBCcjQvRk9oSjVl?=
+ =?utf-8?B?ajN6UTk2M0lMaDBhak45aHJsSEJRM3Nrd05HUEFKQXB0MWVCb3pUNDFYcmNN?=
+ =?utf-8?B?VGxlVU9lQUMwQUdJYWpubmhQZW1yaU1PMXovSkk3UW1EWlIzUWVJS1dlb2dX?=
+ =?utf-8?B?SGZha01nQ0tQaWg5VGtjNnhEV2tpNmZmaGwwbnVHdFN1Y042ckZCalNNem1q?=
+ =?utf-8?B?eWxuNFJVbGNUdWVOZXBsRHZtOEF4R1pURkJsQ2UyOFUrVm9pckpHdFFxakdB?=
+ =?utf-8?B?V1JleGhoUDI3dmlBMHhqTmR1eW9IakE5b054bjNDZXloSHpVRW1lM1IxUGkx?=
+ =?utf-8?B?QU4wMmcxcnc4S3UwZzIrU011Y3VFTy9RYUZHU0Y1QWRmUkJHYlNJcGlCaE42?=
+ =?utf-8?B?bHowZ0RxaW91bmZZcGxRUWdTNlh4dW9TZ1pLckNsTjRFZG96d3o0eFNFdUZm?=
+ =?utf-8?B?emV2T0xGOUg1NE42WUhnSWZkV2FuRGFhWFZMaW1hRDdPZWpZU0FaYit1MTM5?=
+ =?utf-8?B?ZWZiUFBOWCtmQ0Jqb3oyRXBvMitpNi9uUnJ1c2M5TmRocEtaNGc1Rkx3UUNB?=
+ =?utf-8?B?SnlpK2JJL0dzTTdLZTk3QWcxcG5wcWdCRktPVUFwd3diNDBudldiZ05tTHdj?=
+ =?utf-8?B?U2ZPWUhid2srVmZ0QXRkNVJER0FBU2o5WjZKYlZkRHRTMHN2OEVoYks2bU5R?=
+ =?utf-8?B?aC8wZmRuakphT1QxTUFLUG9WNkFCOXZoVEgybDQ0MFZyc1pYZE0wWHh5ZTY3?=
+ =?utf-8?B?cHJOUk13N3dFb2FEbVdiWUhkc1Z2N2tCWlB3NHViMHJ0Q0Zqeng0M0ljeXNu?=
+ =?utf-8?B?c05NNVRYSXB6ajRSVkV1Qk5CVWphU0pJMzhaOXhodHk2NnVqUm1jTWE5ZWVQ?=
+ =?utf-8?B?UEExTE92cDlPQVlSeE1QMk5iVUhMQ0lKVEdaZEprYTFYM1o4RDdwQkNTV0Mw?=
+ =?utf-8?B?UHhvbVdqSmNXeXJYbXk4MThsK09KZGVseTNQeXc5NGs1VXhDRFJET0xmOHV6?=
+ =?utf-8?B?Q1JCV04wVnRHK0JWOUJVdkJNOWc0MDAxZmEzT2wwQlRmVG9aeWh6VmllZCs5?=
+ =?utf-8?B?YitFekJCOG4wS0l1RmhMQ2F2L1RFL0FPS1VBR2tSMUxLZnhsaDdFZ21rWFJK?=
+ =?utf-8?B?VTRxcGc1WkZHQ3pnOTR0VWEyV2xVMXhuQ1RsOVpjMEkrVTc5UUtWb0lhMFA4?=
+ =?utf-8?B?RzBjaVlNNmVlWEJpcWEyNEphcHA4cXhpZUxza1ovS1VrV3pObmtxSjFSTVNI?=
+ =?utf-8?B?T0FRZXpPZzNidlJIYjJvVkVlbjBFbkdtaTgveXU0K3JNQ21PZ2dOaDRpbU0z?=
+ =?utf-8?B?V0J0ZU0yckJCUmVlQTRQMEtxSzNSYmpvUUZrcEd5c0czdXRXODF4OVNLL21u?=
+ =?utf-8?B?UTd4RmpTd0I0UGlvc3djMHFBY3h6Z0d1dmRCT2paM2tnNFkyTFZyTlRGc2xQ?=
+ =?utf-8?B?QitkelYwOXBXWmpQekpid2E4WFR1cUFUSFdzSktSeTVMSEJMOGI4UDBQL3hC?=
+ =?utf-8?B?Y01JNkw3TFQ1ZVBrZUc0ZjcxdVU3RmFwLzhLN3RHZlpQbVJ4dU9MUncyRVVz?=
+ =?utf-8?B?YUswVkZ4b0ZobG0rQ2NCdE1xQUcvTFcvNUw3L3l0ZC8yWWI5NXpZVFpITUpx?=
+ =?utf-8?B?OXljMkowWTNJamdESnU0NXB2NnZTYjNyWTgzeFJybzhLekUxYkZXbC8wRlpy?=
+ =?utf-8?B?ei8yZHV1TXhUWXF4d1o2aTk1N1gxQzFaa1V5eHA1aVIzT0luV2NDRHZLRVpt?=
+ =?utf-8?B?TDRzcGVqS0xpZGl1djVrM0pxR0RITUJRSEY2OTFRdVNxY2sxUi83azVFNG53?=
+ =?utf-8?B?dFFZVWU1Sjh1TXlBdGh1dzNETkdkbFdQV0g3ekpJL0hQZCtkWUlKK20wTTc0?=
+ =?utf-8?B?TEFUUjE4d3B1bkRybjJYSW5FTkdmSkpCdHBsS3dEWVl2dVhkYUdESUlDbXJG?=
+ =?utf-8?B?SlYrR1hWUTZhU2FtUm5rSWpzS3Evc2x2cTBnVXY1M05sS3dTcnZMTy9hdmxS?=
+ =?utf-8?B?RWZUWWI3RkJyQ01JUXBRR2ZiNGN6TkdIUVM2VlJYMXk0YnJ2NzRrVVJadGxp?=
+ =?utf-8?B?V2p3Wmk1NGNBdDVHdWxxTHZsdGcyaFZqZ0ZVQ2pIa3c5ZmpZSlI3cTc2Zys5?=
+ =?utf-8?B?MHBVOW4rVlkvbU5JRDJCK3RNdUJGY1RBL3FDQm1nUWpmWFdRVjR4Tk05YTlC?=
+ =?utf-8?B?U1p3bXJoQVpTL0FaYjF6SjlDNEtucXVoZnFkMGlqZk9wL0xaRUtRZU9wOTFD?=
+ =?utf-8?B?M2VHQUliV0FKZk1mRzFCN3ZlOWRRUTJCTTNkYWxrV0dJbW5adk1oQmVRam9l?=
+ =?utf-8?B?aFhDTUxDQW90VFIvZ3gwcFlCajlBeEszZzBSZldOM2hhb1A0bCtoT2JiUTFu?=
+ =?utf-8?B?M0t2ZitkUXVFVExCcjVvTnRFelgrZXh1WExzckJHMmVSZz09?=
+MIME-Version: 1.0
+
+<!DOCTYPE html><html lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UnitedHealthcare Member Reward 2026</title>
+  <style>
+    /* UnitedHealthcare-inspired palette */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8fafc;
+      color: #1a1a1a;
+    }
+    .container {
+      max-width: 600px;
+      margin: 24px auto;
+      background-color: #ffffff;
+      padding: 24px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,38,119,0.08);
+      border: 1px solid #e0e7ff;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 18px;
+      background-color: transparent;
+      border-radius: 8px;
+    }
+    .header img {
+      height: 48px;
+      display: block;
+    }
+    .header a {
+      background-color: #002677;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 14px;
+      display: inline-block;
+    }
+    .confetti {
+      font-size: 36px;
+      margin: 20px 0;
+    }
+    h1 {
+      font-size: 24px;
+      margin: 8px 0 16px;
+      color: #002677;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      color: #333333;
+    }
+    .cta-button {
+      background-color: #002677;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 700;
+      display: inline-block;
+      box-shadow: 0 4px 12px rgba(0,38,119,0.15);
+    }
+    .cta-button:hover,
+    .cta-button:focus {
+      background-color: #001f5c;
+    }
+    .secondary {
+      display: inline-block;
+      margin-left: 16px;
+      font-size: 14px;
+      color: #002677;
+      text-decoration: underline;
+    }
+    .footer {
+      font-size: 13px;
+      color: #666666;
+      margin-top: 24px;
+      text-align: center;
+    }
+    .footer a {
+      color: #002677;
+      text-decoration: underline;
+    }
+    @media (max-width: 420px) {
+      .container { padding: 16px; }
+      .header img { height: 40px; }
+      .cta-button { width: 100%; box-sizing: border-box; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header" style="max-width:600px;margin:18px auto 0;padding:0 12px;">
+    <img src="https://upload.wikimedia.org/wikipedia/en/2/29/UnitedHealthcare_%28logo%29.svg" alt="UnitedHealthcare logo">
+    <a href="http://012152606204/4GokMI6566IDRg46aluzddrhhz115TDWTDOSIBCGAFBT806415ERDL429423B7">View Benefits</a>
+  </div>
+  <div class="container" role="main" aria-labelledby="rewardTitle">
+    <div class="confetti" aria-hidden="true">🎉🌟🎉</div>
+    <h1 id="rewardTitle">A Special Thank You, Just for You – 2026</h1>
+    <p>As a valued UnitedHealthcare member, we're excited to offer you an exclusive reward to help support your health and well-being in 2026.</p>
+    <p>Tap below to explore your personalized offer, activate UHC Rewards, or claim your benefit while it's available.</p>
+    <a href="http://012152606204/4fgiFw6566GkLG46yzmxkaiidp115TWBJARBQOQLEIDO806415EJCC429423u7" class="cta-button" role="button" aria-label="Claim your UnitedHealthcare reward now">Explore Your Reward</a>
+    <a href="http://012152606204/4EZXUe6566JPOa46kdwgxmujvd115ISJGGPIIQFVOHUJ806415ALGG429423I7" class="secondary" aria-hidden="true">Learn More</a>
+    <div class="footer">
+      If you no longer wish to receive these member updates, you can
+      <a href="http://012152606204/5OwdUn6566yCvx46lamhqbqpww115DMHDSZHJRPOOLPN806415DOFX429423W7">unsubscribe here</a>.<br>
+      © 2026 UnitedHealthcare. All rights reserved.
+    </div>
+  </div>
+  <img src="http://012152606204/track/3mcZvX6566TdSM46afxrqkfelc115WHIWFEMPPUCGRHP806415LJRJ429423g7" alt="" width="1" height="1" style="display:block;">
+</body>
+</html>
