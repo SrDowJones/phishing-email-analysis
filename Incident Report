@@ -3,4 +3,4 @@
 [3] Blocking the sender UHC@REWARDSBQK.COM would prevent any more emails coming from this address and would not have any negative impact because no legitimate emails would be coming from this address. 
 [4] Block email address UHC@REWARDSBQK.COM on 22nd January at 9:17PM. 
 [5] The URL used came from the domain leaseweb.com with an IP 81.171.12.132 from the Netherlands. Using browserling I was able to go to the domain and 
-see that it is a Iaas company. 
+see that it is a Iaas company. Would need to block the domain leaseweb.com to stop receiving emails 
