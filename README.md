@@ -4,3 +4,4 @@ Objectives
 1. Analyze a suspected phishing email
 2. Identify the artifacts (using Whois Lookup, Virus Tool,s and abuseipdb)
 3. Document the findings
+
