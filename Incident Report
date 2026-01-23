@@ -1,6 +1,18 @@
-"[1] The sending address was trying to impersonate United Health Center; however, the sending IP revealed it was actually an Outlook address and therefore not from UHC. 
-[2] I am unable to block the sending server IP, as it belongs to Microsoft and would have a negative impact because legitimate emails would be blocked. 
-[3] Blocking the sender UHC@REWARDSBQK.COM would prevent any more emails coming from this address and would not have any negative impact because no legitimate emails would be coming from this address. 
-[4] Block email address UHC@REWARDSBQK.COM on 22nd January at 9:17PM. 
-[5] The URL used came from the domain leaseweb.com with an IP 81.171.12.132 from the Netherlands. Using browserling I was able to go to the domain and 
-see that it is a Iaas company. Would need to block the domain leaseweb.com to stop receiving emails 
+[1] The sender address attempted to impersonate United Health Center. Analysis of the sending IP revealed that the message originated from Microsoft Outlook infrastructure, 
+confirming that the email was not legitimately sent by United Health Center.
+
+[2] The sending server IP was not blocked, as it belongs to Microsoft-owned infrastructure. Blocking this IP would likely disrupt the delivery of legitimate emails 
+and could cause unintended service impact.
+
+[3] The sender email address UHC@REWARDSBQK.COM was identified as malicious. Blocking this address would prevent further emails from this source and would not negatively impact 
+legitimate communications, as the domain is not associated with any trusted or authorized sender.
+
+[4] The sender address UHC@REWARDSBQK.COM
+    was blocked on 22 January at 9:17 PM.
+
+[5] The embedded URL resolved to the domain leaseweb.com, with IP address 81.171.12.132, geolocated to the Netherlands. Further investigation identified 
+Leaseweb as an Infrastructure-as-a-Service (IaaS) provider, indicating that the attacker likely leveraged cloud-hosted infrastructure to deliver the phishing content.
+
+[6] To mitigate potential repeat activity, the domain www.leaseweb.com was blocked at the email client level. As this analysis was conducted on a personal email account, 
+blocking this domain was assessed to have no negative operational impact. 
+    The domain block was implemented on 23 January at 5:28 PM.
