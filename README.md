@@ -5,3 +5,4 @@ Objectives
 2. Identify the artifacts (using Whois Lookup, Virus Tool,s and Abuseipdb, Browserling, Cisco Tallos Intelligence Group)
 3. Document the findings
 
+I am not an SOC Analyst, but would love to be one! 
